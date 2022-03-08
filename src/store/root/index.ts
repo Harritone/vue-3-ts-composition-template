@@ -1,13 +1,21 @@
 import { createStore, StoreOptions } from 'vuex';
-import { RootStateInterface, RootStoreModel } from '@/models/store';
+import {
+  RootStateInterface,
+  RootStoreModel,
+  StoreModuleNames,
+  MutationType,
+  ItemsStateInterface,
+  LocalesStateInterface,
+} from '@/models/store';
 import { initialRootState } from './initialState';
-// import { itemsState } from '@/store/items/module';
 import { itemsState } from '../items/module';
+import { localesState } from '../locales/module';
 
 const storeOptions: StoreOptions<RootStateInterface> = {
   state: initialRootState,
   modules: {
     itemsState,
+    localesState,
   },
 };
 
