@@ -12,7 +12,8 @@
 import { computed, defineComponent, onMounted } from 'vue';
 import ItemsListComponentVue from '@/components/items/ItemsList.component.vue';
 import { ItemInterface } from '@/models/items/Item.interface';
-import store from '@/store';
+import { useItemsStore } from '@/store/items';
+import { MutationType, StoreModuleNames } from '@/models/store';
 
 export default defineComponent({
   name: 'HomeView',
@@ -20,22 +21,28 @@ export default defineComponent({
     ItemsListComponentVue,
   },
   setup() {
+    const itemsStore = useItemsStore();
     const items = computed(() => {
-      return store.state.items;
+      return itemsStore.state.items;
     });
     const loading = computed(() => {
-      return store.state.loading;
+      return itemsStore.state.loading;
     });
 
     const onSelectItem = (item: ItemInterface) => {
-      store.dispatch('selectItem', {
-        id: item.id,
-        selected: !item.selected,
-      });
+      itemsStore.action(
+        MutationType.items.selectedItem,
+        // store.dispatch(
+        //   `${StoreModuleNames.itemsState}/${MutationType.items.selectedItem}`,
+        {
+          id: item.id,
+          selected: !item.selected,
+        },
+      );
     };
 
     onMounted(() => {
-      store.dispatch('loadItems');
+      itemsStore.action(MutationType.items.loadItems);
     });
     return { items, loading, onSelectItem };
   },
