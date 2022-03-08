@@ -20,9 +20,7 @@ export default defineComponent({
   setup(props, { emit }) {
     const cssClass = computed(() => {
       let css = 'item';
-      console.log(props.model);
       if (props.model?.selected) {
-        console.log(props.model.selected);
         css += ' selected';
       }
       return css.trim();
