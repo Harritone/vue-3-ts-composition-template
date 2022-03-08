@@ -1,5 +1,5 @@
 <template>
-  <h2>Project</h2>
+  <h2>{{ i18n.t('welcome') }}</h2>
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
@@ -9,9 +9,14 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 export default defineComponent({
   name: 'App',
+  setup() {
+    const i18n = useI18n();
+    return { i18n };
+  },
 });
 </script>
 
