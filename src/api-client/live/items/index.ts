@@ -1,12 +1,11 @@
+import { config } from '@/config';
 import {
+  ItemsApiClientUrlsInterface,
   ItemsApiClientInterface,
   ItemsApiClientModel,
-  ItemsApiClientUrlsInterface,
 } from '@/models/api-client/itmes';
 
-const urls: ItemsApiClientUrlsInterface = {
-  fetchItems: '/static/data/items.json',
-};
+const urls: ItemsApiClientUrlsInterface = config.items.apiUrls;
 
 const itemsApiClient: ItemsApiClientInterface = new ItemsApiClientModel(urls);
 

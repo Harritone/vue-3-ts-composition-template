@@ -9,31 +9,13 @@ export const initialLocalesState: LocalesStateInterface = {
   availableLocales: [
     {
       name: 'USA',
-      locale: 'en-US',
+      locale: 'en',
       flag: 'us',
       selected: false,
     },
     {
-      name: 'Spain',
-      locale: 'es-ES',
-      flag: 'es',
-      selected: false,
-    },
-    {
-      name: 'France',
-      locale: 'fr-FR',
-      flag: 'fr',
-      selected: false,
-    },
-    {
-      name: 'Italy',
-      locale: 'IT-it',
-      flag: 'it',
-      selected: false,
-    },
-    {
       name: 'RUS',
-      locale: 'ru-RU',
+      locale: 'ru',
       flag: 'ru',
       selected: true,
     },
